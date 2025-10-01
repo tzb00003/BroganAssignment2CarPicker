@@ -195,7 +195,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(46, 267);
+            button1.Location = new Point(68, 238);
             button1.Name = "button1";
             button1.Size = new Size(112, 34);
             button1.TabIndex = 15;
@@ -207,12 +207,13 @@
             // 
             outputLabel.AutoSize = true;
             outputLabel.BorderStyle = BorderStyle.FixedSingle;
-            outputLabel.Location = new Point(217, 323);
+            outputLabel.Location = new Point(68, 275);
+            outputLabel.MaximumSize = new Size(100, 100);
+            outputLabel.MinimumSize = new Size(650, 100);
             outputLabel.Name = "outputLabel";
-            outputLabel.Padding = new Padding(250, 20, 250, 50);
-            outputLabel.Size = new Size(561, 97);
+            outputLabel.Size = new Size(650, 100);
             outputLabel.TabIndex = 16;
-            outputLabel.Text = "label1";
+           
             // 
             // MainForm
             // 
@@ -227,6 +228,7 @@
             Controls.Add(yearLabel);
             Controls.Add(truckLabel);
             Controls.Add(truckListBox);
+            MinimumSize = new Size(100, 50);
             Name = "MainForm";
             Text = "Assignment 2";
             colorGroupBox.ResumeLayout(false);

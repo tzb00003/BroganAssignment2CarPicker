@@ -12,7 +12,7 @@ namespace BroganAssignment2CarPicker
         public bool hasFeatures = false;
         private enum Colors
         {
-            Red,Blue,White,Black
+            Red, Blue, White, Black
         }
         private void getColor(Colors c)
         {
@@ -36,38 +36,41 @@ namespace BroganAssignment2CarPicker
         private void getFeatures()
         {
             selectedFeatures = "";
-            selectedFeatures += acCheckBox.Checked ? ", AC" : "no AC";
-            selectedFeatures += powerWindowsCheckBox.Checked ? ", Power Windows" : "";
-            selectedFeatures += syriusRadioCheckBox.Checked ? ", Syrius Radio" : "";
-            selectedFeatures += laneAssistCheckBox.Checked ? ", Lane Assist" : "";
-            selectedFeatures = selectedFeatures.Substring(2);
+            if (acCheckBox.Checked) selectedFeatures += ", AC";
+            if (powerWindowsCheckBox.Checked) selectedFeatures += ", Power Windows";
+            if (syriusRadioCheckBox.Checked) selectedFeatures += ", Syrius Radio";
+            if (laneAssistCheckBox.Checked) selectedFeatures += ", Lane Assist";
+            selectedFeatures = selectedFeatures != "" ? selectedFeatures.Substring(2) : "";
+            if(selectedFeatures.Length > 1) hasFeatures = true; 
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(truckListBox.Text))
+            if (string.IsNullOrEmpty(truckListBox.Text))
             {
                 outputLabel.Text = "Please select a truck model.";
-                outputLabel.BackColor = Color.Red;
+                outputLabel.ForeColor = Color.Red;
             }
-            else if(!int.TryParse(yearTextBox.Text, out int year))
+            else if (!int.TryParse(yearTextBox.Text, out int year))
             {
                 outputLabel.Text = "Please enter a valid year.";
                 outputLabel.ForeColor = Color.Red;
             }
-            //else if(!blueRadioButton.Checked || !redRadioButton.Checked
-            //    || !blackRadioButton.Checked || !whiteRadioButton.Checked)
-            //{
-            //    outputLabel.Text = "Please select a truck color.";
-            //    outputLabel.ForeColor = Color.Red;
-            //}
+            else if (!blueRadioButton.Checked && !redRadioButton.Checked &&
+                 !blackRadioButton.Checked && !whiteRadioButton.Checked)
+            {
+                outputLabel.Text = "Please select a truck color.";
+                outputLabel.ForeColor = Color.Red;
+            }
             else
             {
-               // getColor(Colors.Red);
+                getColor(Colors.Red);
                 getFeatures();
-                outputLabel.Text = $"You have purchased a {yearTextBox.Text} {truckListBox.Text}";
-                outputLabel.Text += hasFeatures ? $" with the following features:  \n{selectedFeatures}" : " with no features selected.";
+                outputLabel.Text = $"You have purchased a {color} {yearTextBox.Text} {truckListBox.Text}";
+                outputLabel.Text += hasFeatures ?  $" with the following features:  \n{selectedFeatures}" : " with no features selected.";
                 outputLabel.ForeColor = Color.Black;
             }
         }
+
+        
     }
 }
