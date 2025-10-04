@@ -106,6 +106,7 @@
             whiteRadioButton.TabStop = true;
             whiteRadioButton.Text = "White";
             whiteRadioButton.UseVisualStyleBackColor = true;
+            whiteRadioButton.CheckedChanged += whiteRadioButton_CheckedChanged;
             // 
             // blackRadioButton
             // 
@@ -117,6 +118,7 @@
             blackRadioButton.TabStop = true;
             blackRadioButton.Text = "Black";
             blackRadioButton.UseVisualStyleBackColor = true;
+            blackRadioButton.CheckedChanged += blackRadioButton_CheckedChanged;
             // 
             // blueRadioButton
             // 
@@ -128,6 +130,7 @@
             blueRadioButton.TabStop = true;
             blueRadioButton.Text = "Blue";
             blueRadioButton.UseVisualStyleBackColor = true;
+            blueRadioButton.CheckedChanged += blueRadioButton_CheckedChanged;
             // 
             // redRadioButton
             // 
@@ -139,6 +142,7 @@
             redRadioButton.TabStop = true;
             redRadioButton.Text = "Red";
             redRadioButton.UseVisualStyleBackColor = true;
+            redRadioButton.CheckedChanged += redRadioButton_CheckedChanged;
             // 
             // featuresGroupBox
             // 
@@ -213,7 +217,6 @@
             outputLabel.Name = "outputLabel";
             outputLabel.Size = new Size(650, 100);
             outputLabel.TabIndex = 16;
-           
             // 
             // MainForm
             // 

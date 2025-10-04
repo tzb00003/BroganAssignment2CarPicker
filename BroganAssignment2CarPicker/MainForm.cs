@@ -16,6 +16,7 @@ namespace BroganAssignment2CarPicker
         }
         private void getColor(Colors c)
         {
+
             switch (c)
             {
                 case Colors.Red:
@@ -41,7 +42,7 @@ namespace BroganAssignment2CarPicker
             if (syriusRadioCheckBox.Checked) selectedFeatures += ", Syrius Radio";
             if (laneAssistCheckBox.Checked) selectedFeatures += ", Lane Assist";
             selectedFeatures = selectedFeatures != "" ? selectedFeatures.Substring(2) : "";
-            if(selectedFeatures.Length > 1) hasFeatures = true; 
+            if (selectedFeatures.Length > 1) hasFeatures = true;
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -63,14 +64,31 @@ namespace BroganAssignment2CarPicker
             }
             else
             {
-                getColor(Colors.Red);
                 getFeatures();
                 outputLabel.Text = $"You have purchased a {color} {yearTextBox.Text} {truckListBox.Text}";
-                outputLabel.Text += hasFeatures ?  $" with the following features:  \n{selectedFeatures}" : " with no features selected.";
+                outputLabel.Text += hasFeatures ? $" with the following features:  \n{selectedFeatures}" : " with no features selected.";
                 outputLabel.ForeColor = Color.Black;
             }
         }
 
-        
+        private void redRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            getColor(Colors.Red);
+        }
+
+        private void blueRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            getColor(Colors.Blue);
+        }
+
+        private void blackRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            getColor(Colors.Black);
+        }
+
+        private void whiteRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            getColor(Colors.White);
+        }
     }
 }
